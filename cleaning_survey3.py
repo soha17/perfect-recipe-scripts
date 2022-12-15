@@ -2,10 +2,22 @@ import pandas as pd
 # sncookie, fcookie, pcookie, tcookie
 df = pd.read_csv('survey3_pilot.csv')
 
-sncookie_correct = 0
-fcookie_correct = 0
-pcookie_correct = 0
-tcookie_correct = 0
+times_shown = {'Strictly Necessary': 0, 
+    'Necessary': 0, 
+    'Functional': 0, 
+    'Personalization': 0, 
+    'Preferences': 0, 
+    'Personalized Experience': 0, 
+    'Customization': 0, 
+    'Performance': 0, 
+    'Anonymous Analytics': 0, 
+    'Aggregated Analytics': 0, 
+    'Advertising': 0, 
+    'Targeting': 0, 
+    'Marketing': 0, 
+    'Personalized Advertising': 0, 
+    'Targeted Advertising': 0
+    }
 
 correct_count = {'Strictly Necessary': 0, 
     'Necessary': 0, 
@@ -40,6 +52,14 @@ for index in df.index:
     fcookie = df.loc[index, 'fcookie']
     pcookie = df.loc[index, 'pcookie']
     tcookie = df.loc[index, 'tcookie']
+
+    # mark when the cookie has been shown
+    times_shown[sncookie] += 1
+    times_shown[fcookie] += 1
+    times_shown[pcookie] += 1
+    times_shown[tcookie] += 1
+    print(times_shown)
+
     # print(sncookie, fcookie, pcookie, tcookie)
     # print()
     # print(df.loc[index, 'Functional_1'])
