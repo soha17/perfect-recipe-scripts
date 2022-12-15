@@ -58,7 +58,6 @@ for index in df.index:
     times_shown[fcookie] += 1
     times_shown[pcookie] += 1
     times_shown[tcookie] += 1
-    print(times_shown)
 
     # print(sncookie, fcookie, pcookie, tcookie)
     # print()
@@ -165,6 +164,7 @@ for index in df.index:
     # print(advertising1_answer, advertising2_answer)
     # print('\n')
 
-print(correct_count)
-print(incorrect_df)
+# print(correct_count)
+# print(incorrect_df)
+print(times_shown)
 incorrect_df.to_csv('incorrect_answers.csv')
