@@ -43,8 +43,6 @@ for index in df.index:
     # print(sncookie, fcookie, pcookie, tcookie)
     # print()
     # print(df.loc[index, 'Functional_1'])
-    # we need to do a regex matching thing
-    # never mind we're doing split
     # print('index:', index, 'value: ', df.loc[index, 'Functional_1'])
     
     # getting the answers that participants put in
@@ -65,8 +63,6 @@ for index in df.index:
     if stricly_necessary2_answer == 'sncookie':
         correct_count[sncookie] += 1
     elif stricly_necessary2_answer == 'fcookie':
-        # so the first value is the correct answer/col and the second value is the incorrect/row
-        # this way, it's easier to pull values out
         incorrect_df[sncookie][fcookie] += 1
     elif stricly_necessary2_answer == 'pcookie':
         incorrect_df[sncookie][pcookie] += 1
@@ -148,11 +144,6 @@ for index in df.index:
     # print(performance1_answer, performance2_answer)
     # print(advertising1_answer, advertising2_answer)
     # print('\n')
-
-# so this will print the "Strictly Necessary" Column - this will give us the amount of times ppl selected
-# other options over the correct answer (Strictly Necessary)
-# print(incorrect_df["Strictly Necessary"])
-# print(correct_count)
 
 print(correct_count)
 print(incorrect_df)
