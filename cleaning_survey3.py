@@ -156,3 +156,4 @@ for index in df.index:
 
 print(correct_count)
 print(incorrect_df)
+incorrect_df.to_csv('incorrect_answers.csv')
