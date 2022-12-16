@@ -1,6 +1,6 @@
 import pandas as pd
 # sncookie, fcookie, pcookie, tcookie
-df = pd.read_csv('survey3_50.csv')
+df = pd.read_csv('survey3_prolificpilot.csv')
 
 # dictionaries that we need
 participants_shown = {'Strictly Necessary': 0, 
