@@ -1,8 +1,8 @@
 import pandas as pd
 # sncookie, fcookie, pcookie, tcookie
-df = pd.read_csv('survey3_pilot.csv')
+df = pd.read_csv('survey3_prolificpilot.csv')
 
-times_shown = {'Strictly Necessary': 0, 
+participants_shown = {'Strictly Necessary': 0, 
     'Necessary': 0, 
     'Functional': 0, 
     'Personalization': 0, 
@@ -54,10 +54,10 @@ for index in df.index:
     tcookie = df.loc[index, 'tcookie']
 
     # mark when the cookie has been shown
-    times_shown[sncookie] += 1
-    times_shown[fcookie] += 1
-    times_shown[pcookie] += 1
-    times_shown[tcookie] += 1
+    participants_shown[sncookie] += 1
+    participants_shown[fcookie] += 1
+    participants_shown[pcookie] += 1
+    participants_shown[tcookie] += 1
 
     # print(sncookie, fcookie, pcookie, tcookie)
     # print()
@@ -164,7 +164,24 @@ for index in df.index:
     # print(advertising1_answer, advertising2_answer)
     # print('\n')
 
-# print(correct_count)
+print("Amount of participants shown cookie:", participants_shown, "\n")
+print("Correctly chosen answer:", correct_count)
 # print(incorrect_df)
-print(times_shown)
 incorrect_df.to_csv('incorrect_answers.csv')
+print()
+# to get the number of times the answer was correct, we do # times it was correct / # times it was shown
+print("Strictly necessary correct", correct_count['Strictly Necessary'] / (participants_shown['Strictly Necessary'] * 2) * 100, "percent of the time")
+print("Necessary correct", correct_count['Necessary'] / (participants_shown['Necessary'] * 2) * 100, "percent of the time")
+
+print("Functional correct", correct_count['Functional'] / (participants_shown['Functional'] * 3) * 100, "percent of the time")
+print("Personalization correct", (correct_count['Personalization'] / (participants_shown['Personalization'] * 3)) * 100, "percent of the time")
+print("Preferences correct", (correct_count['Preferences'] / (participants_shown['Preferences'] * 3)) * 100, "percent of the time")
+print("Personalized Experience correct", (correct_count['Personalized Experience'] / (participants_shown['Personalized Experience'] * 3)) * 100, "percent of the time")
+print("Customization correct", (correct_count['Customization'] / (participants_shown['Customization'] * 3)) * 100, "percent of the time")
+
+print("Performance correct", (correct_count['Performance'] / (participants_shown['Performance'] * 2)) * 100, "percent of the time")
+print("Anonymous Analytics correct", (correct_count['Anonymous Analytics'] / (participants_shown['Anonymous Analytics'] * 2)) * 100, "percent of the time")
+print("Aggregated Analytics correct", (correct_count['Aggregated Analytics'] / (participants_shown['Aggregated Analytics'] * 2)) * 100, "percent of the time")
+
+
+# matplotlib barh
